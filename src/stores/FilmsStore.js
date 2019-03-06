@@ -1,5 +1,4 @@
 import { EventEmitter } from 'events';
-
 import AppDispatcher from '../dispatcher/AppDispatcher.js';
 import AppConstants from '../constants/AppConstants.js';
 
@@ -11,11 +10,11 @@ let _isLoading = true;
 
 function formatFilm(film){
   return{
-    stars: film.stars,
     id: film._id,
     title: film.title,
     year: film.year,
     format: film.format,
+    stars: film.stars
   };
 }
 
@@ -38,7 +37,7 @@ const FilmsStore = Object.assign({}, EventEmitter.prototype, {
   }
 });
 
-AppDispatcher.register(function(action){
+AppDispatcher.register(action => {
   switch(action.type){
     case AppConstants.LOAD_FILMS_REQUEST: {
       _isLoading = true;

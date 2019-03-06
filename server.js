@@ -1,10 +1,14 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import {serverPort} from './etc/config.json'
+import mongoose from 'mongoose';
+import config from './etc/config.json';
 import * as db from './utils/DataBaseUtils.js';
 import cors from 'cors'
 
-db.setUpConnection();
+function setUpConnection(){
+  mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
+}
+setUpConnection();
 
 const app = express();
 
@@ -17,6 +21,7 @@ app.get('/films', (req, res) => {
   });
 });
 app.post('/films', (req, res) => {
+  console.log(req.body);
   db.addFilm(req.body).then(data => {
     res.send(data);
   });
@@ -27,4 +32,4 @@ app.delete('/films/:id', (req, res) => {
   });
 });
 
-app.listen(serverPort, () => console.log('Listening on port ' + serverPort))
+app.listen(config.serverPort, () => console.log('Listening on port ' + config.serverPort))
