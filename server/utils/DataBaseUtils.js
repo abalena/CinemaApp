@@ -4,15 +4,15 @@ import '../models/film';
 const Film = mongoose.model('Film');
 
 export function listOfFilms(){
-  return Film.find();
+  return Film.find().sort({title: 1});
 }
 
-export function addFilm(data){
+export function addFilm({title, year, format, stars}){
   const film = new Film({
-    title: data.title,
-    year: data.year,
-    format: data.format,
-    stars: data.stars
+    title,
+    year,
+    format,
+    stars
   })
   return film.save();
 }

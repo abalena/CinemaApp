@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import config from './etc/config.json';
+import config from '../etc/config.json';
 import * as db from './utils/DataBaseUtils.js';
 import cors from 'cors'
 

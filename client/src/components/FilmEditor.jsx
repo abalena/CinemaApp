@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../style/filmEditor.css';
+import '../style/style.css';
 
 export default class FilmEditor extends React.Component{
   constructor(props){

@@ -7,10 +7,11 @@ Open console and run next commands:
 git clone https://github.com/abalena/CinemaApp.git
 cd CinemaApp
 npm install
+cd client
 npm start
 ```
 4. Project will be opened in your browser.
-   To start server run next command in console:
+   To start server go to server folder and run next command in console:
    ```
  npx babel-node server.js
  ```
