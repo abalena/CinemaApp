@@ -5,11 +5,6 @@ import config from '../etc/config.json';
 import * as db from './utils/DataBaseUtils.js';
 import cors from 'cors'
 
-function setUpConnection(){
-  mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
-}
-setUpConnection();
-
 const app = express();
 
 app.use(cors());

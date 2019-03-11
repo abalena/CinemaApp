@@ -1,15 +1,7 @@
-
 .FilmEditor{
   display: flex;
   flex-direction: column;
   margin: auto;
   width: 40%;
 
-}
-.ListOfFilms{
-  border: 1px solid black;
-}
-.film{
-  display: flex;
-  justify-content: space-around;
 }
