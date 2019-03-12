@@ -5,6 +5,7 @@ import FilmsStore from '../stores/FilmsStore.js';
 import FilmsActions from '../actions/FilmsActions.js';
 import Film from './Film.jsx';
 import Search from './Search.jsx';
+import UploadFile from './UploadFile.jsx';
 
 function getStateFromFlux(){
   return{
@@ -48,6 +49,7 @@ export default class App extends React.Component{
     return(
       <div className='App'>
         <FilmEditor onFilmAdd={this.handleFilmAdd} />
+        <UploadFile />
         <ListOfFilms films={this.state.films} onFilmDelete={this.handleFilmDelete} />
         <Search onFilmSearch={this.handleFilmSearch} />
        </div>

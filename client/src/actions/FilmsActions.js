@@ -39,6 +39,9 @@ const FilmsActions = {
   },
 
   filmSearch(film){
+    AppDispatcher.dispatch({
+      type: Constants.LOAD_FILMS_REQUEST
+    });
     api.searchFilm(film)
     .then(({data}) =>
       AppDispatcher.dispatch({
