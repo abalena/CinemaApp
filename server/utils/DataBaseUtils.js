@@ -10,7 +10,7 @@ function setUpConnection(){
 setUpConnection();
 
 export function listOfFilms(){
-  return Film.find().sort({title: 1});
+    return Film.find().sort({title: 1});
 }
 
 export function addFilm(data){
@@ -25,4 +25,8 @@ export function addFilm(data){
 
 export function deleteFilm(id){
   return Film.findById(id).remove();
+}
+
+export function searchFilm(data){
+  return Film.find({$or: [{title: data.search}, {stars: data.search}]}).sort({title: 1});
 }

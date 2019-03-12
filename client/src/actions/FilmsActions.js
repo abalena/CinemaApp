@@ -36,6 +36,22 @@ const FilmsActions = {
       this.loadFilms()
     )
     .catch(err => console.log(err));
+  },
+
+  filmSearch(film){
+    api.searchFilm(film)
+    .then(({data}) =>
+      AppDispatcher.dispatch({
+        type: Constants.LOAD_FILMS_SUCCESS,
+        films: data
+      })
+    )
+    .catch(err =>
+      AppDispatcher.dispatch({
+        type: Constants.LOAD_FILMS_FAIL,
+        error: err
+      })
+    );
   }
 }
 

@@ -21,6 +21,12 @@ app.post('/films', (req, res) => {
     res.send(data);
   });
 });
+app.post('/films/search', (req, res) => {
+  console.log(req.body);
+  db.searchFilm(req.body).then(data => {
+    res.send(data);
+  });
+});
 app.delete('/films/:id', (req, res) => {
   db.deleteFilm(req.params.id).then(data => {
     res.send(data);

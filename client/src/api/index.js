@@ -11,5 +11,8 @@ export default {
   },
   deleteFilm(filmId){
     return axios.delete(`${apiPrefix}/films/${filmId}`);
+  },
+  searchFilm(data){
+    return axios.post(`${apiPrefix}/films/search`, data);
   }
 }

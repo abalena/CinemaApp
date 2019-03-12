@@ -3,6 +3,8 @@ import FilmEditor from './FilmEditor.jsx';
 import ListOfFilms from './ListOfFilms.jsx';
 import FilmsStore from '../stores/FilmsStore.js';
 import FilmsActions from '../actions/FilmsActions.js';
+import Film from './Film.jsx';
+import Search from './Search.jsx';
 
 function getStateFromFlux(){
   return{
@@ -38,12 +40,16 @@ export default class App extends React.Component{
     FilmsActions.deleteFilm(film.id);
   }
 
+  handleFilmSearch(data){
+    FilmsActions.filmSearch(data)
+  }
+
   render(){
     return(
       <div className='App'>
-        <h1>Films</h1>
         <FilmEditor onFilmAdd={this.handleFilmAdd} />
-        <ListOfFilms films={this.state.films} />
+        <ListOfFilms films={this.state.films} onFilmDelete={this.handleFilmDelete} />
+        <Search onFilmSearch={this.handleFilmSearch} />
        </div>
      );
   }
