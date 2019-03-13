@@ -23,6 +23,7 @@ export default class UploadFile extends React.Component{
     render() {
       return (
         <div className="UploadFile">
+          <h5>You can upload your .txt file with films here</h5>
           <input type='file' accept=".txt" name='file' onChange={this.uploadFile}/>
           <button onClick = {this.handleFileUpload}>Upload</button>
         </div>

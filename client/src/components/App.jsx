@@ -3,7 +3,6 @@ import FilmEditor from './FilmEditor.jsx';
 import ListOfFilms from './ListOfFilms.jsx';
 import FilmsStore from '../stores/FilmsStore.js';
 import FilmsActions from '../actions/FilmsActions.js';
-import Film from './Film.jsx';
 import Search from './Search.jsx';
 import UploadFile from './UploadFile.jsx';
 
@@ -54,8 +53,8 @@ export default class App extends React.Component{
       <div className='App'>
         <FilmEditor onFilmAdd={this.handleFilmAdd} />
         <UploadFile onFileUpload={this.handleFileUpload} />
-        <ListOfFilms films={this.state.films} onFilmDelete={this.handleFilmDelete} />
         <Search onFilmSearch={this.handleFilmSearch} />
+        <ListOfFilms films={this.state.films} onFilmDelete={this.handleFilmDelete} />
        </div>
      );
   }

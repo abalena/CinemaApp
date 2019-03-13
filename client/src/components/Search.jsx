@@ -17,6 +17,7 @@ export default class Search extends React.Component{
   render(){
     return(
       <div>
+      <span>Find film by title or actor's name: </span>
       <input
         type="text"
         placeholder="Enter title or actor"

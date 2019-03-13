@@ -22,7 +22,7 @@ const FilmsActions = {
       })
     );
   },
-  
+
   addFilm(film){
     api.addFilm(film)
     .then(() =>

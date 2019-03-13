@@ -1,25 +1,29 @@
 import React from 'react';
-import Film from './Film.jsx';
+import {Router, Route, Link} from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
 import '../style/style.css';
+import Film from './Film.jsx';
+
+const history = createBrowserHistory();
 
 export default class ListOfFilms extends React.Component{
-
-  constructor(props){
-    super(props)
-    this.onDelete = this.props.onFilmDelete
-}
 
   generateFilmList() {
     const {films} = this.props;
     return films.map(film => {
       return (
-          <li key={film.id} onClick={this.props.onFilmDelete}>{film.title}</li>
+        <Film key={film.id} onFilmDelete={this.props.onFilmDelete} tempFilm={film}></Film>
       )
     })
   }
   render(){
     return(
-      <Film>{this.generateFilmList()}</Film>
+      <Router history={history}>
+        <div className="ListOfFilms">
+          <h4>List of films:</h4>
+          <div>{this.generateFilmList()}</div>
+        </div>
+      </Router>
     )
   }
 }

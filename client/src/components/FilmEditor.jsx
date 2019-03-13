@@ -15,7 +15,9 @@ export default class FilmEditor extends React.Component{
   };
 
   handleTitleChange = (event) => {
-    this.setState({title: event.target.value});
+    if(event.target.value.match("^[0-9A-Za-zА-Яа-я,: ]*$") != null){
+      this.setState({title: event.target.value});
+    }
   };
   handleYearChange = (event) => {
     if(event.target.value.match("^[0-9]*$") != null){
@@ -23,10 +25,14 @@ export default class FilmEditor extends React.Component{
     }
   };
   handleFormatChange = (event) => {
-    this.setState({format: event.target.value});
+    if(event.target.value.match("^[0-9A-Za-z ]*$") != null){
+      this.setState({format: event.target.value});
+    }
   };
   handleStarsChange = (e) => {
-    this.setState({stars: event.target.value});
+    if(event.target.value.match("^[A-Za-zА-Яа-я, ]*$") != null){
+      this.setState({stars: event.target.value});
+    }
   };
   handleFilmAdd = () => {
     const newFilm = {
@@ -42,7 +48,7 @@ export default class FilmEditor extends React.Component{
   render(){
     return(
       <div className='FilmEditor'>
-        <h2>FilmEditor</h2>
+        <h2>Add new film</h2>
         <input
           type='text'
           placeholder='Enter title'

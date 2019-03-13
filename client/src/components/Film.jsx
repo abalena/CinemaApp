@@ -1,13 +1,21 @@
 import React from 'react';
 
-export default class Film extends React.Component{
-    render() {
-        return (
-            <div>
-                <button onClick={this.props.onFilmDelete}> × </button>
-                <h4>{this.props.title}</h4>
-                <div>{this.props.children}</div>
-            </div>
-        );
-    }
+export default class ListOfFilms extends React.Component{
+  constructor(props){
+    super(props)
+    this.film = null;
+  }
+  onDelete = () => {
+    this.props.onFilmDelete(this.film);
+    this.film = null;
+  }
+  render(){
+    this.film = this.props.tempFilm;
+    return(
+      <div>
+        <button onClick={this.onDelete}> × </button>
+        <span>{this.film.title}</span>
+      </div>
+    )
+  }
 }
