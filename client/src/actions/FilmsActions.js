@@ -22,6 +22,7 @@ const FilmsActions = {
       })
     );
   },
+  
   addFilm(film){
     api.addFilm(film)
     .then(() =>
@@ -55,7 +56,16 @@ const FilmsActions = {
         error: err
       })
     );
+  },
+
+  uploadFile(data){
+    api.uploadFile(data)
+    .then(() =>
+      this.loadFilms()
+    )
+    .catch(err => console.log(err));
   }
+
 }
 
 export default FilmsActions

@@ -18,12 +18,14 @@ export default class FilmEditor extends React.Component{
     this.setState({title: event.target.value});
   };
   handleYearChange = (event) => {
-    this.setState({year: event.target.value});
+    if(event.target.value.match("^[0-9]*$") != null){
+      this.setState({year: event.target.value});
+    }
   };
   handleFormatChange = (event) => {
     this.setState({format: event.target.value});
   };
-  handleStarsChange = (event) => {
+  handleStarsChange = (e) => {
     this.setState({stars: event.target.value});
   };
   handleFilmAdd = () => {
@@ -49,6 +51,7 @@ export default class FilmEditor extends React.Component{
         />
         <input
           type='text'
+          maxLength='4'
           placeholder='Enter year'
           value={this.state.year}
           onChange={this.handleYearChange}

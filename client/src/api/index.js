@@ -14,5 +14,8 @@ export default {
   },
   searchFilm(data){
     return axios.post(`${apiPrefix}/films/search`, data);
+  },
+  uploadFile(data){
+    return axios.post(`${apiPrefix}/films/upload`, data)
   }
 }

@@ -45,11 +45,15 @@ export default class App extends React.Component{
     FilmsActions.filmSearch(data)
   }
 
+  handleFileUpload(data){
+    FilmsActions.uploadFile(data)
+  }
+
   render(){
     return(
       <div className='App'>
         <FilmEditor onFilmAdd={this.handleFilmAdd} />
-        <UploadFile />
+        <UploadFile onFileUpload={this.handleFileUpload} />
         <ListOfFilms films={this.state.films} onFilmDelete={this.handleFilmDelete} />
         <Search onFilmSearch={this.handleFilmSearch} />
        </div>
