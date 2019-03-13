@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Route, Link} from 'react-router-dom';
+import {Router} from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import '../style/style.css';
 import Film from './Film.jsx';
@@ -18,12 +18,11 @@ export default class ListOfFilms extends React.Component{
   }
   render(){
     return(
-      <Router history={history}>
-        <div className="ListOfFilms">
-          <h4>List of films:</h4>
-          <div>{this.generateFilmList()}</div>
-        </div>
-      </Router>
+      <div>
+        <h4>List of films:</h4>
+        <h5>To see more information about the film click on the title of this film</h5>
+        <div>{this.generateFilmList()}</div>
+      </div>
     )
   }
 }

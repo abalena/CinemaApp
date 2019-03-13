@@ -12,7 +12,6 @@ export default class UploadFile extends React.Component{
   uploadFile(event) {
       let file = event.target.files[0];
       if(file){
-        console.log(file);
         this.data.append('file', file)
       }
     }

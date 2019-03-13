@@ -6,13 +6,15 @@ Open console and run next commands:
 ```
 git clone https://github.com/abalena/CinemaApp.git
 cd CinemaApp
-npm install
 cd client
+npm install
 npm start
 ```
-4. Project will be opened in your browser.
-   To start server go to server folder and run next command in console:
-   ```
- npx babel-node server.js
- ```
+ Project will be opened in your browser.
+
+4. To start server go to folder *server* and run next command in console:
+```
+ npm install
+ npm start
+```
 5. Server is located at <http://localhost:3000>
