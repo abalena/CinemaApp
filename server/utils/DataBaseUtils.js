@@ -28,5 +28,5 @@ export function deleteFilm(id){
 }
 
 export function searchFilm(data){
-  return Film.find({$or: [{title: {$regex: data.search}}, {stars: {$regex: data.search}}]}).sort({title: 1});
+  return Film.find({$or: [{title: {$regex: data.search, $options:"i"}}, {stars: {$regex: data.search, $options:"i"}}]}).sort({title: 1});
 }
